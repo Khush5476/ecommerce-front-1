@@ -49,8 +49,20 @@ const Wrapper = styled.div`
   justify-content: space-between;
   padding: 20px 0;
 `;
-  
+
 const StyledNav = styled.nav`
+  ${({ navActive }) =>
+    navActive
+      ? `
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    `
+      : `
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    `}
   position: fixed;
   gap: 15px;
   top: 0;
@@ -59,9 +71,7 @@ const StyledNav = styled.nav`
   right: 0;
   padding: 70px 20px 20px;
   background-color: #222;
-  opacity: ${props => (props.navActive ? 1 : 0)};
-  transform: translateX(${props => (props.navActive ? '0' : '-100%')});
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Added transition for smooth display change */
 
   @media screen and (min-width: 768px) {
     display: flex;
@@ -80,7 +90,6 @@ const NavLink = styled(Link)`
 
   @media screen and (min-width: 768px) {
     padding: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   &:hover {
@@ -90,7 +99,6 @@ const NavLink = styled(Link)`
 `;
 
 const NavButton = styled.button`
-
   background-color: transparent;
   width: 30px;
   height: 30px;
@@ -98,7 +106,7 @@ const NavButton = styled.button`
   color: white;
   cursor: pointer;
   position: relative;
-  z-index: 100;
+  z-index: 3;
   transition: opacity 0.3s ease, transform 0.3s ease;
 
   @media screen and (min-width: 768px) {
@@ -117,20 +125,20 @@ export default function Header() {
         <Wrapper>
           <Logo href="/">Company</Logo>
           <StyledNav navActive={navActive}>
-            <NavLink href={'/'} isActive={router.pathname === '/'}>
+            <NavLink href="/" isActive={router.pathname === '/'}>
               Home
             </NavLink>
-            <NavLink href={'/projects'} isActive={router.pathname === '/projects'}>
+            <NavLink href="/projects" isActive={router.pathname === '/projects'}>
               All Projects
             </NavLink>
-            <NavLink href={'/Email'} isActive={router.pathname === '/Email'}>
+            <NavLink href="/Email" isActive={router.pathname === '/Email'}>
               Email Me
             </NavLink>
             {/* <NavLink href="/account">Account</NavLink> */}
             {/* <NavLink href="/cart">Cart ({cartProjects.length})</NavLink> */}
           </StyledNav>
 
-          <NavButton onClick={() => setNavActive(prev => !prev)}>
+          <NavButton onClick={() => setNavActive((prev) => !prev)}>
             <BarsIcon />
           </NavButton>
         </Wrapper>
@@ -138,6 +146,3 @@ export default function Header() {
     </StyledHeader>
   );
 }
-
-
-
