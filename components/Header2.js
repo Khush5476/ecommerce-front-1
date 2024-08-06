@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Center from './Center';
 import { useContext, useState } from 'react';
 import { CartContext } from './CartContext';
-import BarsIcon from './Icons/Bars';
+import BarsIcon from './Bars';
 
 const hoverAnimation = keyframes`
   0% {
