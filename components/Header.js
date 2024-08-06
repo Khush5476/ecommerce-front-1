@@ -6,6 +6,7 @@ import { useContext, useState } from 'react';
 import { CartContext } from './CartContext';
 import BarsIcon from './Icons/Bars';
 
+
 const hoverAnimation = keyframes`
   0% {
     transform: scale(1);

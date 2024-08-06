@@ -2,7 +2,7 @@ import Center from "./Center";
 import styled from "styled-components";
 import Button from "./Button";
 import ButtonLink from "./ButtonLink";
-import CartIcon from "./Icons/CartIcon";
+// import CartIcon from "./Icons/CartIcon";
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 
@@ -103,10 +103,6 @@ export default function Featured({project}){
 
 
                     <ButtonLink href={'/project/'+project._id} outline={1} >Read More</ButtonLink>
-                    {/* <Button white onClick={addFeaturedToCart} >
-                    <CartIcon />
-                    Add to Cart
-                    </Button> */}
                     </ButtonsWrapper>
                     </div>
                     </Column>
