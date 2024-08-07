@@ -227,7 +227,7 @@ export default function Email() {
         ></TextArea>
 
         <Button type="submit">
-          Submit <Img1 src="http://127.0.0.1:5500/Website/Email/arrow_icon.png" />
+          Submit <Img1 src="/arrow_icon.png" />
         </Button>
       </ContactLeft>
 
