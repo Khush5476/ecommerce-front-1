@@ -229,7 +229,7 @@ export default function Email() {
         </Button>
       </ContactLeft>
       <div className="contact-right">
-        <Img src="/right_img.png" />
+        <Img src="/right.png" />
       </div>
     </Container>
   );
