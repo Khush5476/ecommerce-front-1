@@ -18,7 +18,7 @@ const Container = styled.div`
 
 const LeftTitle = styled.div`
   font-weight: 600;
-  color: blue;
+  color: blue-90;
   font-size: 40px;
   margin-bottom: 5px;
   animation: fade 1s ease;
@@ -90,12 +90,12 @@ const Button = styled.button`
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 5px 0.1px gray;
+        box-shadow: 0 0 5px .1px gray;
   animation: ${colorAnimation} 3s linear infinite;
   &:hover {
     background-color: #e9ecef; /* Light gray background on hover */
-    transform: scale(1.1); /* Scale up slightly on hover */
-    box-shadow: 0 0 10px 0.4px gray;
+      transform: scale(1.1); /* Scale up slightly on hover */
+      box-shadow: 0 0 10px .4px gray;
   }
 `;
 
@@ -203,31 +203,34 @@ export default function Email() {
           type="hidden"
           name="access_key"
           value="6546a1dc-371d-405c-8f4f-da0b068e6714"
-        />
+        ></input>
         <ContactsInput
           type="text"
           name="name"
           placeholder="Your Name"
           className="contact-inputs"
           required
-        />
+        ></ContactsInput>
+
         <ContactsInput
           type="email"
           name="email"
           placeholder="Your Email"
           className="contact-inputs"
           required
-        />
+        ></ContactsInput>
         <TextArea
           name="message"
           placeholder="Your Message"
           className="contact-inputs"
           required
-        />
+        ></TextArea>
+
         <Button type="submit">
           Submit <Img1 src="/arrow_icon.png" />
         </Button>
       </ContactLeft>
+
       <div className="contact-right">
         <Img src="/right.png" />
       </div>
