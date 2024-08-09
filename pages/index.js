@@ -19,7 +19,7 @@ export default function HomePage({featuredProject, newProjects}){
 }
 
 export async function getServerSideProps(){
-  const featuredProjectId = '667c8bbca8e2dedb8382dcd2';
+  const featuredProjectId = '66afd8b265bcaa0800143703';
   await mongooseConnect();
   const featuredProject = await Project.findById(featuredProjectId);4
   const newProjects = await Project.find({} , null, {sort: {'_id':-1}, limit:8})
