@@ -17,7 +17,7 @@ const Image = styled.img`
 
 const BigImage = styled.img`
   max-width: 100%;
-  height: 200px; /* Adjust height as needed */
+  height: 300px; /* Adjust height as needed */
   object-fit: cover; /* Ensure the image covers the space */
   @media  screen and (min-width: 768px){
   height: 400px; /* Adjust height as needed */
