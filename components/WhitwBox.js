@@ -6,14 +6,15 @@ border-radius: 10px;
 padding: 30px;
 width: 280px;
 height: 320px;
-  @media  screen and (min-width: 975px){
-width: 550px;
-height: 550px;
-}
   @media  screen and (min-width: 768px){
 width: 500px;
 height: 500px;
 }
+  @media  screen and (min-width: 975px){
+width: 550px;
+height: 550px;
+}
+
 
 
 
