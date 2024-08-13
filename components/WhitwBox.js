@@ -7,8 +7,8 @@ padding: 30px;
 width: 280px;
 height: 320px;
   @media  screen and (min-width: 768px){
-width: 500px;
-height: 500px;
+width: 400px;
+height: 400px;
 }
   @media  screen and (min-width: 975px){
 width: 550px;
