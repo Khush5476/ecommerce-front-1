@@ -37,12 +37,14 @@ const Description = styled.p`
   line-height: 1.6; /* Improve readability */
   margin: 20px 0;
 
-  @media screen and (min-width: 768px) {
-    padding-right: 300px;
+
+
+    @media screen and (min-width: 768px) {
+    padding-right: 10px;
   }
 
-    @media screen and (min-width: 769px) {
-    padding-right: 10px;
+      @media screen and (min-width: 1400px) {
+    padding-right: 300px;
   }
 
 
