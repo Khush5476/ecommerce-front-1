@@ -40,6 +40,10 @@ const Description = styled.p`
   @media screen and (min-width: 768px) {
     padding-right: 300px;
   }
+
+    @media screen and (min-width: 900px) {
+    padding-right: 50px;
+  }
 `;
 
 export default function ProjectPage({ project }) {

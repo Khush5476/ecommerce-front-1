@@ -21,6 +21,9 @@ const BigImage = styled.img`
   object-fit: cover; /* Ensure the image covers the space */
   @media  screen and (min-width: 768px){
   height: 400px; /* Adjust height as needed */
+}
+    @media screen and (min-width: 900px) {
+    height: 330px;
 `;
 
 const BigImageWrapper = styled.div`
