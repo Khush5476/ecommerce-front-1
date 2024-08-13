@@ -16,19 +16,12 @@ const hoverAnimation = keyframes`
 `;
 
 const ProjectWrapper = styled.div`
-height:250px;
-width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
   &:hover {
     animation: ${hoverAnimation} 0.3s ease;
   }
-
-  @media  screen and (min-width: 768px){
-  height: 350px;
-  width: 450px;
-}
 `;
 
 const WhiteBox = styled(Link)`
