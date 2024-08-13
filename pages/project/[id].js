@@ -43,8 +43,8 @@ const Description = styled.p`
     padding-right: 10px;
   }
 
-      @media screen and (min-width: 1400px) {
-    padding-right: 300px;
+      @media screen and (min-width: 1300px) {
+    padding-right: 100px;
   }
 
 
