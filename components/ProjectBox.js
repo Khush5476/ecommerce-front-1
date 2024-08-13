@@ -38,7 +38,7 @@ width: 350px;
   justify-content: center;
   border-radius: 10px;
   // overflow: hidden; /* Ensure image fits within the box */
-  @media screen and (min-width: 1000px) {
+  @media screen and (min-width: 768px) {
     height: 240px;
     width: 480px;
   }
@@ -46,7 +46,7 @@ width: 350px;
   img {
       height: 200px;
     width: 350px;
-    @media  screen and (min-width: 1000px){
+    @media  screen and (min-width: 768px){
     height: 250px;;
     width: 400px;
 }
