@@ -2,10 +2,9 @@ import { useRouter } from 'next/router';
 import styled, { keyframes } from 'styled-components';
 import Link from 'next/link';
 import Center from './Center';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { CartContext } from './CartContext';
 import BarsIcon from './Bars';
-
 
 const hoverAnimation = keyframes`
   0% {
@@ -32,16 +31,15 @@ const fadeInOutAnimation = keyframes`
 
 const StyledHeader = styled.header`
   background-color: #222;
-`;
+  position: fixed; /* Fixed position for larger screens */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it's above other content */
+  transition: background-color 0.3s ease;
 
-const Logo = styled(Link)`
-  color: #fff;
-  text-decoration: none;
-  position: relative;
-  z-index: 3;
-
-  &:hover {
-    animation: ${hoverAnimation} 0.3s ease;
+  @media screen and (max-width: 768px) {
+    position: static; /* Static position for mobile screens */
   }
 `;
 
@@ -49,27 +47,39 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 `;
-  
+
+const Logo = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+  z-index: 3;
+  height: 35px;
+
+  &:hover {
+    animation: ${hoverAnimation} 0.3s ease;
+  }
+`;
+
 const StyledNav = styled.nav`
-  position: fixed;
+  display: flex;
   gap: 15px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 70px 20px 20px;
+  padding: 20px;
   background-color: #222;
   opacity: ${props => (props.navActive ? 1 : 0)};
   transform: translateX(${props => (props.navActive ? '0' : '-100%')});
   transition: opacity 0.3s ease, transform 0.3s ease;
+  position: ${props => (props.isMobile ? 'static' : 'fixed')}; /* Conditional positioning */
+  top: 60px; /* Adjust based on header height */
 
-  @media screen and (min-width: 768px) {
-    display: flex;
-    position: static;
-    padding: 0px;
+  @media screen and (max-width: 768px) {
+    position: static; /* Reset position for mobile screens */
+    padding: 20px 0;
     opacity: 1;
     transform: translateY(0);
+    display: ${props => (props.navActive ? 'flex' : 'none')}; /* Display only when active */
   }
 `;
 
@@ -91,10 +101,9 @@ const NavLink = styled(Link)`
 `;
 
 const NavButton = styled.button`
-
   background-color: transparent;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 0;
   color: white;
   cursor: pointer;
@@ -110,14 +119,23 @@ const NavButton = styled.button`
 export default function Header() {
   const { cartProjects } = useContext(CartContext);
   const [navActive, setNavActive] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
   const router = useRouter();
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <StyledHeader>
       <Center>
         <Wrapper>
           <Logo href="/">Company</Logo>
-          <StyledNav navActive={navActive}>
+          <StyledNav navActive={navActive} isMobile={isMobile}>
             <NavLink href={'/'} isActive={router.pathname === '/'}>
               Home
             </NavLink>
@@ -130,7 +148,6 @@ export default function Header() {
             <NavLink href={'/Services'} isActive={router.pathname === '/Services'}>
               Our Services
             </NavLink>
-
           </StyledNav>
 
           <NavButton onClick={() => setNavActive(prev => !prev)}>
@@ -141,6 +158,3 @@ export default function Header() {
     </StyledHeader>
   );
 }
-
-
-
