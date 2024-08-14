@@ -56,7 +56,7 @@ const Item = styled.div`
 `;
 
 const Img = styled.img`
-  width: 100%;
+  width: 350px;
   height: 200px; /* Fixed height to ensure consistency */
   object-fit: cover; /* Ensures the image covers the container without distortion */
   display: block;
