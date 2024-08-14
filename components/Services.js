@@ -48,19 +48,19 @@ export default function Services(){
             <H3>Makes Roofs</H3>
         </Item>
         <Item>
-            {/* <Img src="/lights.jpg" alt="Lights"> */}
-            <H3>Lights</H3>
+            <Img src="/lights.jpg" alt="Lights"/>
+            <H3>Spot Lights</H3>
             </Item>
             <Item>
-            {/* <Img src="/gutters.jpg" alt="Gutters"> */}
+            <Img src="/gutters.jpg" alt="Gutters"/>
             <H3>Gutters</H3>
             </Item>
             <Item>
-            {/* <Img src="/skylight.jpg" alt="Skylight"> */}
+            <Img src="/skylight.jpg" alt="/Skylight"/>
             <H3>Skylight</H3>
             </Item>
             <Item>
-            {/* <Img src="/wiring.jpg" alt="Wiring"> */}
+            <Img src="/wiring.jpg" alt="Wiring"/>
             <H3>Wiring</H3>
             </Item> 
         </List>
