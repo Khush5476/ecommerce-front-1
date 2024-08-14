@@ -1,4 +1,25 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+// Define keyframes for the animations
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const scaleIn = keyframes`
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+`;
 
 const Body = styled.div`
   font-family: Arial, sans-serif;
@@ -33,11 +54,7 @@ const List = styled.div`
   gap: 20px; /* Gap between items */
   justify-items: center; /* Center items horizontally */
   align-items: center; /* Center items vertically */
-
-  @media (min-width: 768px) {
-    /* Adjust for larger screens */
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  }
+  animation: ${fadeIn} 1s ease-in; /* Apply fade-in animation */
 `;
 
 const Item = styled.div`
@@ -55,6 +72,8 @@ const Item = styled.div`
   flex-direction: column; /* Stack content vertically */
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
+
+  animation: ${scaleIn} 0.5s ease-out; /* Apply scale-in animation */
 
   &:hover {
     transform: translateY(-10px);
@@ -110,4 +129,3 @@ export default function Services() {
     </Body>
   );
 }
-
