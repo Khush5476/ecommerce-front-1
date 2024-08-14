@@ -29,18 +29,21 @@ const Heading = styled.h1`
 
 const List = styled.div`
   display: grid;
-  grid-template-columns: 1fr; /* Default to one column */
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); /* Adjust based on the minimum and maximum item width */
+  gap: 20px; /* Gap between items */
   justify-items: center; /* Center items horizontally */
   align-items: center; /* Center items vertically */
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr); /* Two items per row on larger screens */
+    /* Adjust for larger screens */
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   }
 `;
 
 const Item = styled.div`
   background-color: #fff;
-  width: 360px;
+  width: 100%; /* Full width of its grid cell */
+  max-width: 340px; /* Maximum width for the item */
   height: 260px; /* Fixed height to ensure consistency */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -61,7 +64,7 @@ const Item = styled.div`
 `;
 
 const Img = styled.img`
-  width: 350px;
+  width: 100%; /* Ensure image fills the width of the item */
   height: 200px; /* Fixed height to ensure consistency */
   object-fit: cover; /* Ensures the image covers the container without distortion */
   display: block;
@@ -107,3 +110,4 @@ export default function Services() {
     </Body>
   );
 }
+
