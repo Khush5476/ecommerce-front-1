@@ -41,13 +41,12 @@ const List = styled.div`
 
 const Item = styled.div`
   background-color: #fff;
-    width: 360px;
+    width: 340px;
   height: 260px; /* Fixed height to ensure consistency */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   text-align: center;
-  padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 
   &:hover {
