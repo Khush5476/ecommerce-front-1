@@ -29,6 +29,13 @@ const List = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center; /* Center the items horizontally */
+  display: grid;
+    grid-template-columns: 1fr;
+//  overflow:hidden;
+        @media  screen and (min-width: 768px){
+        grid-template-columns: 1fr 1fr;
+        }
+  
 `;
 
 const Item = styled.div`
@@ -41,13 +48,6 @@ const Item = styled.div`
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   
-  @media (max-width: 768px) {
-    width: calc(50% - 20px); /* Two items per row on tablets */
-  }
-  
-  @media (max-width: 480px) {
-    width: 100%; /* One item per row on phones */
-  }
 
   &:hover {
     transform: translateY(-10px);
