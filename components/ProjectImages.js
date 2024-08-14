@@ -10,21 +10,24 @@ const Image = styled.img`
   height: auto; /* Maintain aspect ratio */
   cursor: pointer;
   height: 50px;
-  @media  screen and (min-width: 768px){
-  height: 75px;
-
+  
+  @media screen and (min-width: 768px) {
+    height: 75px;
+  }
 `;
 
 const BigImage = styled.img`
   max-width: 100%;
   height: 200px; /* Adjust height as needed */
   object-fit: cover; /* Ensure the image covers the space */
-  @media  screen and (min-width: 768px){
-  height: 300px; /* Adjust height as needed */
-}
-    @media  screen and (min-width: 975px){
-  height: 400px; /* Adjust height as needed */
-}
+  
+  @media screen and (min-width: 768px) {
+    height: 300px; /* Adjust height as needed */
+  }
+  
+  @media screen and (min-width: 975px) {
+    height: 400px; /* Adjust height as needed */
+  }
 `;
 
 const BigImageWrapper = styled.div`
@@ -40,7 +43,20 @@ const SliderWrapper = styled.div`
   }
 
   .slick-dots {
-    bottom: -30px; /* Adjust position if needed */
+    bottom: -30px; /* Default position */
+    
+    @media screen and (max-width: 768px) {
+      bottom: -50px; /* Move dots down 20px more on mobile */
+      margin: 0; /* Remove default margin */
+    }
+  }
+
+  .slick-dots li {
+    margin: 0 5px; /* Default margin */
+    
+    @media screen and (max-width: 768px) {
+      margin: 0 2px; /* Less space between dots on mobile */
+    }
   }
 
   .slick-prev,
@@ -57,6 +73,7 @@ const SliderWrapper = styled.div`
     border-radius: 50%;
     transform: translateY(-50%);
     top: 50%;
+    
     &:before {
       color: white;
       font-size: 18px;
@@ -71,6 +88,7 @@ const SliderWrapper = styled.div`
     border-radius: 50%;
     transform: translateY(-50%);
     top: 50%;
+    
     &:before {
       color: white;
       font-size: 18px;
