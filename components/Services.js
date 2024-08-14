@@ -56,23 +56,23 @@ export default function Services() {
         <h1>Our Services</h1>
         <List>
           <Item>
-            <Img src="/images/roofs.jpg" alt="Makes Roofs" />
+            <Img src="/roofs.jpg" alt="Makes Roofs" />
             <H3>Makes Roofs</H3>
           </Item>
           <Item>
-            <Img src="/images/lights.jpg" alt="Lights" />
+            <Img src="/lights.jpg" alt="Lights" />
             <H3>Spot Lights</H3>
           </Item>
           <Item>
-            <Img src="/images/gutters.jpg" alt="Gutters" />
+            <Img src="/gutters.jpg" alt="Gutters" />
             <H3>Gutters</H3>
           </Item>
           <Item>
-            <Img src="/images/skylight.jpg" alt="Skylight" />
+            <Img src="/skylight.jpg" alt="Skylight" />
             <H3>Skylight</H3>
           </Item>
           <Item>
-            <Img src="/images/wiring.jpg" alt="Wiring" />
+            <Img src="/wiring.jpg" alt="Wiring" />
             <H3>Wiring</H3>
           </Item>
         </List>
