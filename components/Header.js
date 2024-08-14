@@ -18,17 +18,6 @@ const hoverAnimation = keyframes`
   }
 `;
 
-const fadeInOutAnimation = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
 const StyledHeader = styled.header`
   background-color: #222;
   position: fixed; /* Fixed position for larger screens */
@@ -37,7 +26,7 @@ const StyledHeader = styled.header`
   right: 0;
   z-index: 1000; /* Ensure it's above other content */
   transition: background-color 0.3s ease;
-
+  
   @media screen and (max-width: 768px) {
     position: static; /* Static position for mobile screens */
   }
@@ -66,16 +55,16 @@ const Logo = styled(Link)`
 const StyledNav = styled.nav`
   display: flex;
   gap: 15px;
-  padding: 20px;
   background-color: #222;
+  padding: 20px;
   opacity: ${props => (props.navActive ? 1 : 0)};
   transform: translateX(${props => (props.navActive ? '0' : '-100%')});
   transition: opacity 0.3s ease, transform 0.3s ease;
-  position: ${props => (props.isMobile ? 'static' : 'fixed')}; /* Conditional positioning */
+  position: fixed; /* Always fixed for desktop */
   top: 60px; /* Adjust based on header height */
 
   @media screen and (max-width: 768px) {
-    position: static; /* Reset position for mobile screens */
+    position: static; /* Static position for mobile screens */
     padding: 20px 0;
     opacity: 1;
     transform: translateY(0);
@@ -112,7 +101,7 @@ const NavButton = styled.button`
   transition: opacity 0.3s ease, transform 0.3s ease;
 
   @media screen and (min-width: 768px) {
-    display: none;
+    display: none; /* Hide button on larger screens */
   }
 `;
 
@@ -135,7 +124,7 @@ export default function Header() {
       <Center>
         <Wrapper>
           <Logo href="/">Company</Logo>
-          <StyledNav navActive={navActive} isMobile={isMobile}>
+          <StyledNav navActive={navActive}>
             <NavLink href={'/'} isActive={router.pathname === '/'}>
               Home
             </NavLink>
