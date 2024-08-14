@@ -61,9 +61,6 @@ export default function ProjectPage({ project }) {
         <div>
           <Title><b>{project.Title}</b></Title>
           <Description>{project.Description}</Description>
-          {project.Price && (
-            <Price>${project.Price}</Price>
-          )}
         </div>
       </ColWrapper>
     </>
