@@ -32,7 +32,12 @@ const Container = styled.div`
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px 20px; /* Added top padding */
+  padding: 60px 20px 20px; /* Default padding for larger screens */
+
+  /* Remove or adjust top padding on mobile screens */
+  @media screen and (max-width: 768px) {
+    padding: 20px 20px 20px; /* Reduced padding for mobile screens */
+  }
 `;
 
 const Heading = styled.h1`
@@ -129,3 +134,4 @@ export default function Services() {
     </Body>
   );
 }
+
