@@ -23,7 +23,6 @@ const Heading = styled.h1`
   padding-bottom: 10px;
   font-weight: bold;
   width: 100%; /* Full width of the container */
-  width: 250px; /* Set a max-width */
   height: 80px; /* Fixed height */
   line-height: 80px; /* Center text vertically */
 `;
@@ -32,7 +31,8 @@ const List = styled.div`
   display: grid;
   grid-template-columns: 1fr; /* Default to one column */
   gap: 20px;
-  justify-content: center; /* Center the items horizontally */
+  justify-items: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr); /* Two items per row on larger screens */
@@ -41,13 +41,18 @@ const List = styled.div`
 
 const Item = styled.div`
   background-color: #fff;
-    width: 340px;
+  width: 340px;
   height: 260px; /* Fixed height to ensure consistency */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+  display: flex; /* Use flexbox to center content */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
 
   &:hover {
     transform: translateY(-10px);
@@ -103,4 +108,3 @@ export default function Services() {
     </Body>
   );
 }
-
