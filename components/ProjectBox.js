@@ -29,6 +29,10 @@ const WhiteBox = styled(Link)`
 height:250px;
 width: 350px;
   @media  screen and (min-width: 768px){
+  margin-left: -20px;
+}
+
+  @media  screen and (min-width: 1000px){
   height: 350px;
   width: 450px;
   margin-left: -20px;
@@ -46,7 +50,7 @@ width: 350px;
   img {
       height: 200px;
     width: 350px;
-    @media  screen and (min-width: 768px){
+    @media  screen and (min-width: 1000px){
     height: 250px;;
     width: 400px;
 }
