@@ -8,7 +8,7 @@ export default function EmailPage(){
     return(
         <>
         <Header/>
-        <Email />
+        <Email /> 
         </>
 
     )
