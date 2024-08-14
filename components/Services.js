@@ -42,12 +42,8 @@ const Item = styled.div`
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 
   @media (max-width: 768px) {
-    width: calc(50% - 20px); /* Two items per row on tablets and mobile */
   }
   
-  @media (max-width: 480px) {
-    width: 100%; /* One item per row on very small screens */
-  }
 
   &:hover {
     transform: translateY(-10px);
@@ -81,20 +77,20 @@ export default function Services() {
           <Item>
             <Img src="/roofs.jpg" alt="Makes Roofs" />
             <H3>Makes Roofs</H3>
-          </Item>
-          <Item>
+    
+        
             <Img src="/lights.jpg" alt="Lights" />
             <H3>Spot Lights</H3>
-          </Item>
-          <Item>
+         
+         
             <Img src="/gutters.jpg" alt="Gutters" />
             <H3>Gutters</H3>
-          </Item>
-          <Item>
+         
+       
             <Img src="/skylight.jpg" alt="Skylight" />
             <H3>Skylight</H3>
-          </Item>
-          <Item>
+      
+        
             <Img src="/wiring.jpg" alt="Wiring" />
             <H3>Wiring</H3>
           </Item>
