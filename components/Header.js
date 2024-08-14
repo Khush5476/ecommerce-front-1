@@ -55,25 +55,23 @@ const StyledNav = styled.nav`
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; /* Cover the entire viewport */
+  bottom: 0; /* Full viewport height */
   background-color: #222;
   opacity: ${props => (props.navActive ? 1 : 0)};
   transform: translateX(${props => (props.navActive ? '0' : '-100%')});
   transition: opacity 0.3s ease, transform 0.3s ease;
   display: flex;
   flex-direction: column; /* Stack nav items vertically */
-  justify-content: center; /* Center items vertically */
-  align-items: center; /* Center items horizontally */
-
+  gap: 15px; /* Space between items */
+  padding: 20px;
+  
   @media screen and (min-width: 768px) {
     position: static;
     opacity: 1;
     transform: translateY(0);
     display: flex;
-    flex-direction: row; /* Align nav items horizontally */
-    justify-content: flex-start; /* Align items to the start */
-    align-items: center; /* Center items vertically */
-    height: auto; /* Reset height for larger screens */
+    flex-direction: row; /* Horizontal alignment on larger screens */
+    padding: 0;
   }
 `;
 
@@ -81,7 +79,7 @@ const NavLink = styled(Link)`
   display: block;
   color: ${({ isActive }) => (isActive ? 'white' : '#aaa')};
   text-decoration: none;
-  padding: 15px 0; /* Increase padding for mobile view */
+  padding: 15px 0; /* Adjust padding for mobile view */
 
   &:hover {
     animation: ${hoverAnimation} 0.3s ease;
@@ -142,3 +140,4 @@ export default function Header() {
     </StyledHeader>
   );
 }
+
