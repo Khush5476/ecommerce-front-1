@@ -23,7 +23,7 @@ const Heading = styled.h1`
   padding-bottom: 10px;
   font-weight: bold;
   width: 100%; /* Full width of the container */
-  max-width: 800px; /* Set a max-width */
+  width: 250px; /* Set a max-width */
   height: 80px; /* Fixed height */
   line-height: 80px; /* Center text vertically */
 `;
@@ -36,10 +36,6 @@ const List = styled.div`
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr); /* Two items per row on larger screens */
-  }
-
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(3, 1fr); /* Optional: Three items per row on very large screens */
   }
 `;
 
