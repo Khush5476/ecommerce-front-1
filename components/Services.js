@@ -30,7 +30,6 @@ const Heading = styled.h1`
 const List = styled.div`
   display: grid;
   grid-template-columns: 1fr; /* Default to one column */
-  gap: 20px; /* Gap between items */
   justify-items: center; /* Center items horizontally */
   align-items: center; /* Center items vertically */
 
@@ -41,7 +40,7 @@ const List = styled.div`
 
 const Item = styled.div`
   background-color: #fff;
-  width: 340px;
+  width: 360px;
   height: 260px; /* Fixed height to ensure consistency */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
