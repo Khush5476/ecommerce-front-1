@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import styled, { keyframes } from 'styled-components';
 import Link from 'next/link';
 import Center from './Center';
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from './CartContext';
 import BarsIcon from './Bars';
 
@@ -20,12 +20,11 @@ const hoverAnimation = keyframes`
 
 const StyledHeader = styled.header`
   background-color: #222;
-  position: fixed; /* Fixed position for larger screens */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Ensure it's above other content */
-  transition: background-color 0.3s ease;
+  z-index: 1000;
 
   @media screen and (max-width: 768px) {
     position: static; /* Static position for mobile screens */
@@ -45,7 +44,6 @@ const Logo = styled(Link)`
   text-decoration: none;
   position: relative;
   z-index: 3;
-  height: 35px;
 
   &:hover {
     animation: ${hoverAnimation} 0.3s ease;
@@ -53,22 +51,23 @@ const Logo = styled(Link)`
 `;
 
 const StyledNav = styled.nav`
-  display: flex;
+  position: fixed;
   gap: 15px;
-  background-color: #222;
+  top: 60px; /* Adjust based on header height */
+  left: 0;
+  right: 0;
   padding: 20px;
+  background-color: #222;
   opacity: ${props => (props.navActive ? 1 : 0)};
   transform: translateX(${props => (props.navActive ? '0' : '-100%')});
   transition: opacity 0.3s ease, transform 0.3s ease;
-  position: fixed; /* Always fixed for desktop */
-  top: 60px; /* Adjust based on header height */
 
-  @media screen and (max-width: 768px) {
-    position: static; /* Static position for mobile screens */
-    padding: 20px 0;
+  @media screen and (min-width: 768px) {
+    position: static;
+    padding: 0;
     opacity: 1;
     transform: translateY(0);
-    display: ${props => (props.navActive ? 'flex' : 'none')}; /* Display only when active */
+    display: flex;
   }
 `;
 
@@ -78,21 +77,21 @@ const NavLink = styled(Link)`
   text-decoration: none;
   padding: 10px 0;
 
-  @media screen and (min-width: 768px) {
-    padding: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
   &:hover {
     animation: ${hoverAnimation} 0.3s ease;
     color: white;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 `;
 
 const NavButton = styled.button`
   background-color: transparent;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border: 0;
   color: white;
   cursor: pointer;
@@ -108,18 +107,7 @@ const NavButton = styled.button`
 export default function Header() {
   const { cartProjects } = useContext(CartContext);
   const [navActive, setNavActive] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
   const router = useRouter();
-
-  useEffect(() => {
-    // This function runs only on the client side
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-
-    handleResize(); // Set initial state based on current window size
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <StyledHeader>
@@ -140,7 +128,6 @@ export default function Header() {
               Our Services
             </NavLink>
           </StyledNav>
-
           <NavButton onClick={() => setNavActive(prev => !prev)}>
             <BarsIcon />
           </NavButton>
@@ -149,4 +136,3 @@ export default function Header() {
     </StyledHeader>
   );
 }
-
