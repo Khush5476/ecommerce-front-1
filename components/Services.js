@@ -32,7 +32,7 @@ const Container = styled.div`
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px 20px; /* Added top padding */
+  padding: 60px 20px 20px; /* Added top padding */
 `;
 
 const Heading = styled.h1`
