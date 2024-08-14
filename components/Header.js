@@ -127,8 +127,10 @@ export default function Header() {
             <NavLink href={'/Email'} isActive={router.pathname === '/Email'}>
               Email Me
             </NavLink>
-            {/* <NavLink href="/account">Account</NavLink> */}
-            {/* <NavLink href="/cart">Cart ({cartProjects.length})</NavLink> */}
+            <NavLink href={'/Services'} isActive={router.pathname === '/Services'}>
+              Our Services
+            </NavLink>
+
           </StyledNav>
 
           <NavButton onClick={() => setNavActive(prev => !prev)}>
