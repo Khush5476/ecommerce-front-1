@@ -31,19 +31,23 @@ const fadeInOutAnimation = keyframes`
 
 const StyledHeader = styled.header`
   background-color: #222;
-  position: fixed; /* Fix the header at the top */
-  top: 0; /* Align to the top of the viewport */
-  left: 0; /* Stretch to the left edge of the viewport */
-  right: 0; /* Stretch to the right edge of the viewport */
+  position: fixed; /* Fixed position for larger screens */
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000; /* Ensure it's above other content */
+
+  @media screen and (max-width: 768px) {
+    position: static; /* Static position for mobile screens */
+  }
 `;
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px 0;
-  max-width: 1200px; /* Optionally, constrain the maximum width */
-  margin: 0 auto; /* Center the header content */
+  max-width: 1200px;
+  margin: 0 auto;
 `;
 
 const Logo = styled(Link)`
@@ -72,8 +76,7 @@ const StyledNav = styled.nav`
     padding: 0;
     opacity: 1;
     transform: translateY(0);
-    display: flex; /* Ensure it displays as flex */
-
+    display: flex;
   }
 `;
 
