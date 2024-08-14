@@ -40,9 +40,9 @@ const Item = styled.div`
   text-align: center;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  
+
   @media (max-width: 768px) {
-    width: calc(50% - 20px); /* Two items per row on mobile */
+    width: calc(50% - 20px); /* Two items per row on tablets and mobile */
   }
   
   @media (max-width: 480px) {
