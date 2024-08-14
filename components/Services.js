@@ -30,7 +30,7 @@ const Heading = styled.h1`
 const List = styled.div`
   display: grid;
   grid-template-columns: 1fr; /* Default to one column */
-  gap: 20px;
+  gap: 20px; /* Gap between items */
   justify-items: center; /* Center items horizontally */
   align-items: center; /* Center items vertically */
 
