@@ -26,7 +26,7 @@ const StyledHeader = styled.header`
   right: 0;
   z-index: 1000; /* Ensure it's above other content */
   transition: background-color 0.3s ease;
-  
+
   @media screen and (max-width: 768px) {
     position: static; /* Static position for mobile screens */
   }
@@ -108,13 +108,15 @@ const NavButton = styled.button`
 export default function Header() {
   const { cartProjects } = useContext(CartContext);
   const [navActive, setNavActive] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
 
   const router = useRouter();
 
   useEffect(() => {
+    // This function runs only on the client side
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    
+
+    handleResize(); // Set initial state based on current window size
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -147,3 +149,4 @@ export default function Header() {
     </StyledHeader>
   );
 }
+
