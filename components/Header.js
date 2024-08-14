@@ -51,6 +51,7 @@ const Logo = styled(Link)`
   text-decoration: none;
   position: relative;
   z-index: 3;
+  height: 35px;
 
   &:hover {
     animation: ${hoverAnimation} 0.3s ease;
@@ -94,8 +95,8 @@ const NavLink = styled(Link)`
 
 const NavButton = styled.button`
   background-color: transparent;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border: 0;
   color: white;
   cursor: pointer;
