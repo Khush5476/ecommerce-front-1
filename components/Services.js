@@ -16,26 +16,31 @@ const Container = styled.div`
 
 const Heading = styled.h1`
   text-align: center;
-  margin-bottom: 40px;
+  margin: 0 auto 40px; /* Remove margin-top to ensure fixed height */
   color: #333;
   font-size: 2.5em;
   border-bottom: 2px solid #007bff; /* Accent color underline */
   padding-bottom: 10px;
   font-weight: bold;
+  width: 100%; /* Full width of the container */
+  max-width: 800px; /* Set a max-width */
+  height: 80px; /* Fixed height */
+  line-height: 80px; /* Center text vertically */
 `;
 
 const List = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr; /* Default to one column */
   gap: 20px;
   justify-content: center; /* Center the items horizontally */
-  display: grid;
-    grid-template-columns: 1fr;
-//  overflow:hidden;
-        @media  screen and (min-width: 768px){
-        grid-template-columns: 1fr 1fr;
-        }
-  
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); /* Two items per row on larger screens */
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr); /* Optional: Three items per row on very large screens */
+  }
 `;
 
 const Item = styled.div`
@@ -43,11 +48,9 @@ const Item = styled.div`
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   overflow: hidden;
-  width: calc(50% - 20px); /* Two items per row */
   text-align: center;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-  
 
   &:hover {
     transform: translateY(-10px);
