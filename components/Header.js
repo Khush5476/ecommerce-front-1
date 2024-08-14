@@ -66,7 +66,6 @@ const StyledNav = styled.nav`
   opacity: ${props => (props.navActive ? 1 : 0)};
   transform: translateX(${props => (props.navActive ? '0' : '-100%')});
   transition: opacity 0.3s ease, transform 0.3s ease;
-  height: 20px;
 
   @media screen and (min-width: 768px) {
     position: static; /* Reset position for larger screens */
