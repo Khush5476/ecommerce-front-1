@@ -44,7 +44,7 @@ export default function Services(){
         <h1>Our Services</h1>
         <List>
           <Item>
-            {/* <Img src="/roofs.jpg" alt="Makes Roofs"> */}
+            <Img src="/roofs.jpg" alt="Makes Roofs"/>
             <H3>Makes Roofs</H3>
         </Item>
         <Item>
