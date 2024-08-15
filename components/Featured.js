@@ -31,6 +31,7 @@ font-size: 0.8rem;
 `;
 
 const ColumnsWrapper = styled.div`
+padding: 30px 0;
 display: grid;
 grid-template-columns: 1fr;
 

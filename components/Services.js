@@ -21,6 +21,17 @@ const scaleIn = keyframes`
   }
 `;
 
+const fallIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const Body = styled.div`
   font-family: Arial, sans-serif;
   margin: 0;
@@ -36,7 +47,7 @@ const Container = styled.div`
 
   /* Remove or adjust top padding on mobile screens */
   @media screen and (max-width: 768px) {
-    padding: 20px 20px 20px; /* Reduced padding for mobile screens */
+    padding: 85px 20px 20px; /* Reduced padding for mobile screens */
   }
 `;
 
@@ -72,13 +83,16 @@ const Item = styled.div`
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-
   display: flex; /* Use flexbox to center content */
   flex-direction: column; /* Stack content vertically */
   justify-content: center; /* Center content vertically */
   align-items: center; /* Center content horizontally */
+  opacity: 0; /* Initially hidden */
+  animation: ${fallIn} 1s ease-out forwards; /* Apply falling animation */
+  animation-delay: ${props => props.delay}; /* Stagger the start time of the animation */
 
-  animation: ${scaleIn} 0.5s ease-out; /* Apply scale-in animation */
+  /* Ensure animation properties are applied after the animation ends */
+  animation-fill-mode: forwards; 
 
   &:hover {
     transform: translateY(-10px);
@@ -103,32 +117,27 @@ const H3 = styled.h3`
   font-weight: bold;
 `;
 
+// Sample data for items
+const services = [
+  { imgSrc: "/roofs.jpg", alt: "Makes Roofs", title: "Makes Roofs" },
+  { imgSrc: "/lights.jpg", alt: "Lights", title: "Spot Lights" },
+  { imgSrc: "/gutters.jpg", alt: "Gutters", title: "Gutters" },
+  { imgSrc: "/skylight.jpg", alt: "Skylight", title: "Skylight" },
+  { imgSrc: "/wiring.jpg", alt: "Wiring", title: "Wiring" },
+];
+
 export default function Services() {
   return (
     <Body>
       <Container>
         <Heading>Our Services</Heading>
         <List>
-          <Item>
-            <Img src="/roofs.jpg" alt="Makes Roofs" />
-            <H3>Makes Roofs</H3>
-          </Item>
-          <Item>
-            <Img src="/lights.jpg" alt="Lights" />
-            <H3>Spot Lights</H3>
-          </Item>
-          <Item>
-            <Img src="/gutters.jpg" alt="Gutters" />
-            <H3>Gutters</H3>
-          </Item>
-          <Item>
-            <Img src="/skylight.jpg" alt="Skylight" />
-            <H3>Skylight</H3>
-          </Item>
-          <Item>
-            <Img src="/wiring.jpg" alt="Wiring" />
-            <H3>Wiring</H3>
-          </Item>
+          {services.map((service, index) => (
+            <Item key={index} delay={`${index * 0.2}s`}>
+              <Img src={service.imgSrc} alt={service.alt} />
+              <H3>{service.title}</H3>
+            </Item>
+          ))}
         </List>
       </Container>
     </Body>

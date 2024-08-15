@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import React from "react";
 
 const Container = styled.div`
+  padding: 60px 20px 20px; /* Default padding for larger screens */
   height: 100vh;
   display: flex;
   align-items: center;

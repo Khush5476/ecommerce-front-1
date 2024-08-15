@@ -32,10 +32,6 @@ const StyledHeader = styled.header`
   left: 0;
   right: 0;
   z-index: 1000;
-
-  @media screen and (max-width: 768px) {
-    position: static; /* Static position for mobile screens */
-  }
 `;
 
 const Wrapper = styled.div`
@@ -51,6 +47,10 @@ const Logo = styled(Link)`
   text-decoration: none;
   position: relative;
   z-index: 3;
+  padding: 10px 0;
+    @media screen and (min-width: 768px) {
+    padding: 0;
+}
 
   &:hover {
     animation: ${hoverAnimation} 0.3s ease;
@@ -59,10 +59,10 @@ const Logo = styled(Link)`
 
 const StyledNav = styled.nav`
   position: fixed;
-  top: 60px; /* Gap from the top */
+  top: 60px; /* Gap from the top, adjust if necessary */
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0; /* Full height */
   background-color: #222;
   opacity: ${props => (props.navActive ? 1 : 0)};
   transform: translateX(${props => (props.navActive ? '0' : '-100%')});
@@ -71,6 +71,7 @@ const StyledNav = styled.nav`
   flex-direction: column;
   gap: 10px; /* Reduced gap between links */
   padding: 20px;
+  z-index: 1001; /* Ensure nav is above other content */
 
   @media screen and (min-width: 768px) {
     position: static;
@@ -87,7 +88,7 @@ const NavLink = styled(Link)`
   display: block;
   color: ${({ isActive }) => (isActive ? 'white' : '#aaa')};
   text-decoration: none;
-  padding: 10px 0; /* Adjust padding for mobile view */
+  padding: 5px 0; /* Adjust padding for mobile view */
 
   &:hover {
     animation: ${hoverAnimation} 0.3s ease;
@@ -102,8 +103,8 @@ const NavLink = styled(Link)`
 
 const NavButton = styled.button`
   background-color: transparent;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 0;
   color: white;
   cursor: pointer;
@@ -140,12 +141,13 @@ export default function Header() {
               <NavLink href={'/projects'} isActive={router.pathname === '/projects'}>
                 All Projects
               </NavLink>
-              <NavLink href={'/Email'} isActive={router.pathname === '/Email'}>
-                Email Me
-              </NavLink>
               <NavLink href={'/Services'} isActive={router.pathname === '/Services'}>
                 Our Services
               </NavLink>
+              <NavLink href={'/Email'} isActive={router.pathname === '/Email'}>
+                Contact Us
+              </NavLink>
+
             </StyledNav>
             <NavButton onClick={() => setNavActive(prev => !prev)}>
               <BarsIcon />

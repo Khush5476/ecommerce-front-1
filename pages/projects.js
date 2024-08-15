@@ -13,11 +13,11 @@ export default function ProjectsPage({projects}){
        font-size: 3rem;   
         font-weight: bold;
         text-align: center; // Horizontally centers the text
-          padding: 60px 20px 20px; /* Default padding for larger screens */
+          padding: 70px 20px 20px; /* Default padding for larger screens */
 
   /* Remove or adjust top padding on mobile screens */
   @media screen and (max-width: 768px) {
-    padding: 20px 20px 20px; /* Reduced padding for mobile screens */
+    padding: 90px 20px 20px; /* Reduced padding for mobile screens */
   }
     
         margin: 0; // Remove default margin that might affect alignment
